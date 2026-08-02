@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+<div class="page-shell gallery-page">
+    <div class="gallery-hero soft-card">
+        <div class="gallery-hero-content">
+            <span class="accent-badge"><i class="bi bi-camera-fill"></i> Church Memories</span>
+            <h1 class="section-title">Our Gallery</h1>
+            <p>Every picture tells a story. Browse the moments of worship, fellowship, conferences, outreach, and celebration that shape our church family.</p>
+        </div>
+    </div>
+
+    <section class="gallery-section soft-card">
+        <div class="gallery-section-heading">
+            <div>
+                <p class="section-label">Worship</p>
+                <h3>Worship Moments</h3>
+            </div>
+            <span class="gallery-count">{{ worship|length }} photos</span>
+        </div>
+        <div class="row g-4">
+            {% for item in worship %}
+            <div class="col-lg-4 col-md-6">
+                <article class="gallery-card">
+                    <div class="gallery-card-image-wrap">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-card-image">
+                        <span class="gallery-card-chip">Worship</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h5>{{ item.title }}</h5>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="gallery-empty">No worship photos have been added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="gallery-section soft-card">
+        <div class="gallery-section-heading">
+            <div>
+                <p class="section-label">Conference</p>
+                <h3>Conference Highlights</h3>
+            </div>
+            <span class="gallery-count">{{ conference|length }} photos</span>
+        </div>
+        <div class="row g-4">
+            {% for item in conference %}
+            <div class="col-lg-4 col-md-6">
+                <article class="gallery-card">
+                    <div class="gallery-card-image-wrap">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-card-image">
+                        <span class="gallery-card-chip">Conference</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h5>{{ item.title }}</h5>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="gallery-empty">No conference photos have been added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="gallery-section soft-card">
+        <div class="gallery-section-heading">
+            <div>
+                <p class="section-label">Youth</p>
+                <h3>Youth Fellowship</h3>
+            </div>
+            <span class="gallery-count">{{ youth|length }} photos</span>
+        </div>
+        <div class="row g-4">
+            {% for item in youth %}
+            <div class="col-lg-4 col-md-6">
+                <article class="gallery-card">
+                    <div class="gallery-card-image-wrap">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-card-image">
+                        <span class="gallery-card-chip">Youth</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h5>{{ item.title }}</h5>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="gallery-empty">No youth photos have been added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="gallery-section soft-card">
+        <div class="gallery-section-heading">
+            <div>
+                <p class="section-label">Outreach</p>
+                <h3>Outreach Service</h3>
+            </div>
+            <span class="gallery-count">{{ outreach|length }} photos</span>
+        </div>
+        <div class="row g-4">
+            {% for item in outreach %}
+            <div class="col-lg-4 col-md-6">
+                <article class="gallery-card">
+                    <div class="gallery-card-image-wrap">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-card-image">
+                        <span class="gallery-card-chip">Outreach</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h5>{{ item.title }}</h5>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="gallery-empty">No outreach photos have been added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="gallery-section soft-card">
+        <div class="gallery-section-heading">
+            <div>
+                <p class="section-label">Other</p>
+                <h3>Special Moments</h3>
+            </div>
+            <span class="gallery-count">{{ other|length }} photos</span>
+        </div>
+        <div class="row g-4">
+            {% for item in other %}
+            <div class="col-lg-4 col-md-6">
+                <article class="gallery-card">
+                    <div class="gallery-card-image-wrap">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-card-image">
+                        <span class="gallery-card-chip">Other</span>
+                    </div>
+                    <div class="gallery-card-body">
+                        <h5>{{ item.title }}</h5>
+                    </div>
+                </article>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <p class="gallery-empty">No additional photos have been added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

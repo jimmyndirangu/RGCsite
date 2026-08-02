@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <p class="text-secondary fs-5 mb-2">Events</p>
+        <h2 class="display-6 fw-bold">Upcoming gatherings to bless, connect, and grow</h2>
+        <p class="mx-auto text-muted" style="max-width:760px; line-height:1.8;">
+            At Redeemed Gospel Church, we regularly host worship services, conferences, youth gatherings, prayer meetings, and community outreach programmes. Everyone is welcome to join us.
+        </p>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="section-title mb-0">Featured Event</h3>
+        <span class="accent-badge">Special Gathering</span>
+    </div>
+
+    <div class="row g-4 mb-5">
+        {% for event in featured %}
+        <div class="col-12">
+            <div class="card event-featured-card border-0 shadow-sm p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 p-3">
+                        <div class="card event-feature-image-card h-100 border-0">
+                            <img src="{{ event.image.url }}" class="event-feature-image" alt="{{ event.title }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-3">
+                        <div class="card event-feature-info-card h-100 border-0">
+                            <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center">
+                                <span class="event-badge">Featured Event</span>
+                                <h3 class="event-card-title mt-3 mb-3">{{ event.title }}</h3>
+                                <p class="event-description mb-4">{{ event.description }}</p>
+                                <div class="event-detail-box">
+                                    <strong>Date</strong>
+                                    <span>{{ event.date }}</span>
+                                    <strong>Time</strong>
+                                    <span>{{ event.time }}</span>
+                                    <strong>Venue</strong>
+                                    <span>{{ event.venue }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="section-title mb-0">More Upcoming Events</h3>
+        <span class="accent-badge">Join Us</span>
+    </div>
+
+    <div class="row g-4">
+        {% for event in upcoming %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card event-card h-100 border-0 shadow-sm">
+                <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="event-card-title">{{ event.title }}</h5>
+                    <p class="event-description flex-grow-1">{{ event.description }}</p>
+                    <div class="event-detail-box mt-3">
+                        <strong>Date</strong>
+                        <span>{{ event.date }}</span>
+                        <strong>Time</strong>
+                        <span>{{ event.time }}</span>
+                        <strong>Venue</strong>
+                        <span>{{ event.venue }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

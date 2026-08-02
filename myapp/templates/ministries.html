@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Ministries{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <p class="text-secondary fs-5 mb-2">Ministries</p>
+        <h2 class="display-6 fw-bold">Discover the places to grow, serve, and belong</h2>
+        <p class="mx-auto text-muted" style="max-width:760px; line-height:1.8;">
+            At Redeemed Gospel Church, every member has a place to belong and serve. Our ministries are designed to help people of all ages grow spiritually, build meaningful relationships, and use their gifts to glorify God.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        {% for ministry in ministries %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card ministry-card h-100 border-0 shadow-sm">
+                <div class="card-image-wrap">
+                    <img src="{{ ministry.image.url }}" class="card-img-top" alt="{{ ministry.name }}">
+                    <span class="card-badge">Active Ministry</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ ministry.name }}</h3>
+                    <p class="card-text text-muted">{{ ministry.description }}</p>
+                    <div class="meta-block">
+                        <p class="mb-2"><strong>Leader:</strong> {{ ministry.leader }}</p>
+                        <p class="mb-0"><strong>Meeting:</strong> {{ ministry.meeting_day }} • {{ ministry.meeting_time }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

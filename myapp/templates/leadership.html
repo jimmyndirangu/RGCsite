@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Leadership{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <p class="text-secondary fs-5 mb-2">Leadership</p>
+        <h2 class="display-6 fw-bold">Meet our dedicated church leadership team</h2>
+        <p class="mx-auto text-muted" style="max-width:760px; line-height:1.8;">At Redeemed Gospel Church, our leadership team is committed to serving God and His people with humility, integrity, and love. We believe leadership is about serving others and guiding them in their walk with Christ. Our leaders are passionate about fostering a welcoming and nurturing environment where everyone can grow in their faith.</p>
+    </div>
+
+    <section class="mb-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-8">
+                <h3 class="section-title mb-1">Senior Leadership</h3>
+                <p class="text-muted">Our senior leaders provide vision, encouragement, and spiritual direction for the whole congregation.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <span class="accent-badge">Vision & Guidance</span>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for leader in senior %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card leadership-card h-100 border-0 shadow-sm">
+                    <img src="{{ leader.image.url }}" class="card-img-top" alt="{{ leader.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ leader.name }}</h5>
+                        <p class="card-subtitle mb-3">{{ leader.position }}</p>
+                        <p class="card-text text-muted">{{ leader.message }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-8">
+                <h3 class="section-title mb-1">Associate Leadership</h3>
+                <p class="text-muted">Supporting ministries and members with care, prayer, and practical service.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <span class="accent-badge">Support Team</span>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for leader in associate %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card leadership-card h-100 border-0 shadow-sm">
+                    <img src="{{ leader.image.url }}" class="card-img-top" alt="{{ leader.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ leader.name }}</h5>
+                        <p class="card-subtitle mb-3">{{ leader.position }}</p>
+                        <p class="card-text text-muted">{{ leader.message }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section>
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-8">
+                <h3 class="section-title mb-1">Ministry Leaders</h3>
+                <p class="text-muted">Leading our ministries with passion so every member can serve and grow.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <span class="accent-badge">Ministry Care</span>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for leader in ministry %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card leadership-card h-100 border-0 shadow-sm">
+                    <img src="{{ leader.image.url }}" class="card-img-top" alt="{{ leader.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ leader.name }}</h5>
+                        <p class="card-subtitle mb-3">{{ leader.position }}</p>
+                        <p class="card-text text-muted">{{ leader.message }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}
