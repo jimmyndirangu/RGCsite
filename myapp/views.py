@@ -5,7 +5,8 @@ from myapp.models import Event, Leader, Ministries, Gallery
 
 # Create your views here.
 def home(request):
-    return render(request, 'base.html')
+    gallery_preview = Gallery.objects.order_by('-id')[:4]
+    return render(request, 'home.html', {'gallery_preview': gallery_preview})
 
 def about(request):
     return render(request, 'aboutus.html')

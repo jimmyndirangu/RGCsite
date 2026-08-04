@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'base'%}">
+            <a class="navbar-brand" href="{% url 'home'%}">
                 Redeemed Gospel Church
             </a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'base'%}">Home</a>
+                    <a class="nav-link" href="{% url 'home'%}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'aboutus'%}">About</a>
@@ -41,15 +41,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid px-0">
-        <div class="hero">
-            <img src="{% static 'image/church.jpg' %}" alt="Church">
-            <div class="hero-text">
-                <h1>Redeemed Gospel Church</h1>
-                <p>Welcome to our church website, where faith, hope, and community come together in love.</p>
-            </div>
-        </div>
-    </div>
+    
 
     <main>
         {% block content %}{% endblock %}

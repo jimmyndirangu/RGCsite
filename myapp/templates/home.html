@@ -1,195 +1,142 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Redeemed Gospel Church{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="page-shell">
-    <section id="about" class="section-anchor soft-card p-4 p-lg-5 mb-4">
-        <div class="row g-4 align-items-center">
-            <div class="col-lg-7">
-                <span class="accent-badge">About Our Church</span>
-                <h2 class="section-title display-6 fw-bold">A place to grow in faith, hope, and love for Christ</h2>
-                <p class="lead text-muted">We are a vibrant church family committed to sharing the transforming gospel of Jesus Christ with our community.</p>
-                <p>From worship and prayer to discipleship and service, we welcome every person to find belonging, encouragement, and purpose in God’s love.</p>
-            </div>
-            <div class="col-lg-5">
-                <img src="{% static 'image/church.jpg' %}" alt="Church" class="img-fluid rounded-4 shadow-sm w-100" style="height: 320px; object-fit: cover;">
-            </div>
-        </div>
-    </section>
 
-    <section id="leadership" class="section-anchor soft-card p-4 p-lg-5 mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <div>
-                <p class="section-label mb-1">Leadership</p>
-                <h3 class="section-title mb-0">Meet our leaders</h3>
-            </div>
-            <span class="accent-badge">Serving with love</span>
-        </div>
-        <div class="row g-4">
-            {% for leader in senior %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card leadership-card h-100 border-0 shadow-sm">
-                    <img src="{{ leader.image.url }}" class="card-img-top" alt="{{ leader.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ leader.name }}</h5>
-                        <p class="card-subtitle mb-3">{{ leader.position }}</p>
-                        <p class="card-text text-muted">{{ leader.message }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+<!-- Hero Section -->
+<div class="container-fluid px-0">
+    <div class="hero">
+        <img src="{% static 'image/church.jpg' %}" alt="Church">
+        <div class="hero-text text-center">
+            <span class="hero-badge">Faith • Fellowship • Family</span>
+            <h1 class="display-3 fw-bold">Redeemed Gospel Church</h1>
+            <p class="lead">
+                A place where faith, hope, and community come together in Christ.
+            </p>
 
-    <section id="ministries" class="section-anchor soft-card p-4 p-lg-5 mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <div>
-                <p class="section-label mb-1">Ministries</p>
-                <h3 class="section-title mb-0">Places to grow and serve</h3>
-            </div>
-            <span class="accent-badge">Join a ministry</span>
-        </div>
-        <div class="row g-4">
-            {% for ministry in ministries %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card ministry-card h-100 border-0 shadow-sm">
-                    <div class="card-image-wrap">
-                        <img src="{{ ministry.image.url }}" class="card-img-top" alt="{{ ministry.name }}">
-                        <span class="card-badge">Active</span>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">{{ ministry.name }}</h3>
-                        <p class="card-text text-muted">{{ ministry.description }}</p>
-                        <div class="meta-block">
-                            <p class="mb-2"><strong>Leader:</strong> {{ ministry.leader }}</p>
-                            <p class="mb-0"><strong>Meeting:</strong> {{ ministry.meeting_day }} • {{ ministry.meeting_time }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="{% url 'aboutus' %}" class="btn btn-primary px-4 py-2">
+                    Learn More
+                </a>
 
-    <section id="events" class="section-anchor soft-card p-4 p-lg-5 mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <div>
-                <p class="section-label mb-1">Events</p>
-                <h3 class="section-title mb-0">Upcoming gatherings</h3>
-            </div>
-            <span class="accent-badge">Come fellowship</span>
-        </div>
-        <div class="row g-4">
-            {% for event in featured %}
-            <div class="col-12">
-                <div class="card event-featured-card border-0 shadow-sm p-0">
-                    <div class="row g-0">
-                        <div class="col-lg-6 p-3">
-                            <img src="{{ event.image.url }}" class="event-feature-image" alt="{{ event.title }}">
-                        </div>
-                        <div class="col-lg-6 p-3">
-                            <div class="card-body p-4 p-lg-5">
-                                <span class="event-badge">Featured Event</span>
-                                <h4 class="event-card-title mt-3 mb-3">{{ event.title }}</h4>
-                                <p class="event-description mb-4">{{ event.description }}</p>
-                                <div class="event-detail-box">
-                                    <strong>Date</strong>
-                                    <span>{{ event.date }}</span>
-                                    <strong>Time</strong>
-                                    <span>{{ event.time }}</span>
-                                    <strong>Venue</strong>
-                                    <span>{{ event.venue }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-
-            {% for event in upcoming %}
-            <div class="col-md-6 col-lg-4">
-                <div class="card event-card h-100 border-0 shadow-sm">
-                    <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="event-card-title">{{ event.title }}</h5>
-                        <p class="event-description flex-grow-1">{{ event.description }}</p>
-                        <div class="event-detail-box mt-3">
-                            <strong>Date</strong>
-                            <span>{{ event.date }}</span>
-                            <strong>Time</strong>
-                            <span>{{ event.time }}</span>
-                            <strong>Venue</strong>
-                            <span>{{ event.venue }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section id="gallery" class="section-anchor soft-card p-4 p-lg-5 mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <div>
-                <p class="section-label mb-1">Gallery</p>
-                <h3 class="section-title mb-0">Moments from our church family</h3>
-            </div>
-            <span class="accent-badge">A glimpse of fellowship</span>
-        </div>
-        <div class="row g-4">
-            {% for item in worship %}
-            <div class="col-md-6 col-lg-4">
-                <article class="gallery-card">
-                    <div class="gallery-card-image-wrap">
-                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-card-image">
-                        <span class="gallery-card-chip">Worship</span>
-                    </div>
-                    <div class="gallery-card-body">
-                        <h5>{{ item.title }}</h5>
-                    </div>
-                </article>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section id="contact" class="section-anchor soft-card p-4 p-lg-5">
-        <div class="row g-4">
-            <div class="col-lg-5">
-                <h3 class="section-title">Get in touch</h3>
-                <p class="text-muted">We would love to hear from you. Whether it is a prayer request, a visit, or just a question, your message matters.</p>
-                <div class="mt-4">
-                    <p class="mb-2"><strong><i class="bi bi-geo-alt-fill me-2"></i>Address</strong><br>P.O. Box 12345, Makueni, Sultan Hamud</p>
-                    <p class="mb-2"><strong><i class="bi bi-telephone-fill me-2"></i>Phone</strong><br>+254 783 278 934</p>
-                    <p class="mb-0"><strong><i class="bi bi-envelope-fill me-2"></i>Email</strong><br>jimmyndirangu001@gmail.com</p>
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <form action="{% url 'contactus' %}" method="post">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label class="form-label">Full Name</label>
-                        <input type="text" name="name" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Subject</label>
-                        <input type="text" name="subject" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Message</label>
-                        <textarea name="message" class="form-control" rows="6" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary px-4">Send Message</button>
-                </form>
+                <a href="{% url 'contactus' %}" class="btn btn-outline-light px-4 py-2">
+                    Contact Us
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 </div>
+
+<!-- Welcome -->
+<section class="container py-5">
+    <div class="welcome-panel text-center">
+        <span class="accent-badge">Welcome Home</span>
+        <h2 class="fw-bold">A warm church family for every season of life</h2>
+        <p class="mx-auto" style="max-width:800px;">
+            Whether you're visiting for the first time or looking for a church family,
+            Redeemed Gospel Church welcomes you with open hearts.
+            Join us as we worship, grow in faith, and serve our community.
+        </p>
+
+        <a href="{% url 'aboutus' %}" class="btn btn-outline-primary mt-3">
+            Discover Our Story
+        </a>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Quick Navigation -->
+<section class="container py-3">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-tile text-center h-100">
+                <i class="bi bi-people-fill display-4"></i>
+                <h4 class="mt-3">Leadership</h4>
+                <p>
+                    Meet the dedicated leaders guiding our church family.
+                </p>
+                <a href="{% url 'leadership' %}" class="btn btn-outline-primary">
+                    Meet the Team
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-tile text-center h-100">
+                <i class="bi bi-heart-fill display-4"></i>
+                <h4 class="mt-3">Ministries</h4>
+                <p>
+                    Discover where you can serve, grow and belong.
+                </p>
+                <a href="{% url 'ministries' %}" class="btn btn-outline-primary">
+                    Explore Ministries
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-tile text-center h-100">
+                <i class="bi bi-calendar-event-fill display-4"></i>
+                <h4 class="mt-3">Events</h4>
+                <p>
+                    Stay updated with our upcoming worship services,
+                    conferences and special events.
+                </p>
+                <a href="{% url 'events' %}" class="btn btn-outline-primary">
+                    View Events
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Gallery Preview -->
+<section class="container py-5">
+    <div class="gallery-preview-shell">
+        <div class="text-center mb-4">
+            <span class="accent-badge">Life in Church</span>
+            <h2 class="fw-bold">Moments of worship, fellowship and outreach</h2>
+            <p class="text-muted">
+                Glimpses of our community in action.
+            </p>
+        </div>
+
+        <div class="row g-3">
+            {% for photo in gallery_preview %}
+            <div class="col-6 col-md-3">
+                <img src="{{ photo.image.url }}" class="img-fluid rounded shadow-sm gallery-preview-image">
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'gallery' %}" class="btn btn-primary">
+                View Full Gallery
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Call To Action -->
+<section class="container-fluid cta-section py-5">
+    <div class="container text-center">
+        <h2 class="fw-bold">We'd Love to Worship With You</h2>
+        <p class="lead mt-3">
+            Join us this Sunday and experience God's love,
+            inspiring worship, and a welcoming church family.
+        </p>
+
+        <a href="{% url 'contactus' %}" class="btn btn-warning btn-lg mt-3">
+            Plan Your Visit
+        </a>
+    </div>
+</section>
+
 {% endblock %}
