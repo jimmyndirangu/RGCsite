@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
 from django.conf import settings
-from myapp.models import Event, Leader, Ministries, Gallery
+from myapp.models import Event, Leader, Ministries, Gallery, Link
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -70,8 +71,9 @@ This message was sent from the Redeemed Gospel Church website.
             request,
             "✅ Thank you for contacting Redeemed Gospel Church. Your message has been sent successfully. We will get back to you as soon as possible."
         )
-
+       
         return redirect("contactus")
+    
       return render(request, "contactus.html")
 
 def ministries(request):

@@ -4,6 +4,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="icon" href="{% static 'image/favicon.png' %}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Redeemed Gospel Church{% endblock %}</title>
@@ -13,6 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home'%}">
+                <img src="{% static 'image/rgc.jpg' %}" alt="RGC Logo" width="45" height="45" class="d-inline-block align-text-top rounded-circle me-2">
                 Redeemed Gospel Church
             </a>
             <ul class="navbar-nav ms-auto">
@@ -70,12 +72,12 @@
 
                 <p>
                     <i class="bi bi-telephone-fill text-warning"></i>
-                    +254 7XX XXX XXX
+                    +254 714 228 058
                 </p>
 
                 <p>
                     <i class="bi bi-envelope-fill text-warning"></i>
-                    redeemedgospel@gmail.com
+                    redeemedgospelfahm@gmail.com
                 </p>
 
             </div>
@@ -94,21 +96,14 @@
 
                 <h5 class="mt-4">Follow Us</h5>
 
-                <a href="#" class="text-light fs-4 me-3">
-                    <i class="bi bi-facebook"></i>
-                </a>
-
-                <a href="#" class="text-light fs-4 me-3">
-                    <i class="bi bi-instagram"></i>
-                </a>
-
-                <a href="#" class="text-light fs-4 me-3">
-                    <i class="bi bi-youtube"></i>
-                </a>
-
-                <a href="#" class="text-light fs-4">
-                    <i class="bi bi-whatsapp"></i>
-                </a>
+                {% for link in links %}
+                 <a href="{{ link.url }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-decoration-none me-3">
+                        <i class="{{ link.icon }} fs-4"></i>
+                 </a>
+                {% endfor %}
 
             </div>
 

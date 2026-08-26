@@ -21,7 +21,7 @@
                     <i class="bi bi-geo-alt-fill fs-5 me-3 mt-1"></i>
                     <div>
                         <h6 class="mb-1">Address</h6>
-                        <p class="mb-0">P.O. Box 12345, Makueni, Sultan Hamud</p>
+                        <p class="mb-0">P.O. Box, 90132-311, Makueni, Sultan Hamud</p>
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
                     <i class="bi bi-telephone-fill fs-5 me-3 mt-1"></i>
                     <div>
                         <h6 class="mb-1">Phone</h6>
-                        <p class="mb-0">+254 783 278 934</p>
+                        <p class="mb-0">+254 714 228 058</p>
                     </div>
                 </div>
 
@@ -37,13 +37,35 @@
                     <i class="bi bi-envelope-fill fs-5 me-3 mt-1"></i>
                     <div>
                         <h6 class="mb-1">Email</h6>
-                        <p class="mb-0">jimmyndirangu001@gmail.com</p>
+                        <p class="mb-0">redeemedgospelfahm@gmail.com</p>
                     </div>
                 </div>
 
                 <div class="mt-4">
-                    <h6 class="mb-2">Social Media</h6>
-                    <p class="text-muted mb-0">You can follow us on the following platforms.</p>
+                    <h6 class="mb-4">Social Media</h6>
+                    <p class="text-muted mb-3">You can follow us on the following platforms.</p>
+                   {% for link in links %}
+                     <div class="d-flex align-items-center p-3 mb-3 rounded-3 transition" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%); border-left: 4px solid #6366f1; cursor: pointer;" onmouseover="this.style.boxShadow='0 4px 15px rgba(99, 102, 241, 0.25)'" onmouseout="this.style.boxShadow='none'">
+
+                         <div class="me-3" style="color: #6366f1;">
+                           <i class="{{ link.icon }} fs-3"></i>
+                        </div>
+
+                         <div>
+                           <h6 class="mb-1 fw-semibold" style="color: #4f46e5;">{{ link.platform }}</h6>
+
+                         <a href="{{ link.url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-decoration-none"
+                            style="color: #6366f1; font-weight: 500;">
+                            Visit our {{ link.platform }} page
+                            <i class="bi bi-arrow-up-right ms-1"></i>
+                         </a>
+                         </div>
+
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

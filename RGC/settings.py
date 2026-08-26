@@ -62,6 +62,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'myapp.context_processors.social_links',
             ],
         },
     },
@@ -128,7 +129,7 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "jimmyndirangu001@gmail.com"
-EMAIL_HOST_PASSWORD = "sbjy szkz kqly ctdu"
+EMAIL_HOST_USER = "redeemedgospelfahm@gmail.com"
+EMAIL_HOST_PASSWORD = "ngas kdjx uinv rlgo"
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

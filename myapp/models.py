@@ -57,3 +57,11 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.title
+
+class Link(models.Model):
+    platform = models.CharField(max_length=50)
+    icon = models.CharField(max_length=100)
+    url = models.URLField()
+
+    def __str__(self):
+        return self.platform
