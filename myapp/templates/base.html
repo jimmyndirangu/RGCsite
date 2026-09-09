@@ -16,7 +16,14 @@
             <a class="navbar-brand" href="{% url 'home'%}">
                 <img src="{% static 'image/rgc.jpg' %}" alt="RGC Logo" width="45" height="45" class="d-inline-block align-text-top rounded-circle me-2">
                 Redeemed Gospel Church
+                <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+                </button>
             </a>
+            <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home'%}">Home</a>
@@ -40,6 +47,7 @@
                     <a class="nav-link" href="{% url 'contactus'%}">Contact</a>
                 </li>
             </ul>
+            </div>
         </div>
     </nav>
 
