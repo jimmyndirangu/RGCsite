@@ -13,18 +13,16 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow-sm">
         <div class="container">
+            <a class="navbar-brand" href="{% url 'home'%}">
+                <img src="{% static 'image/rgc.jpg' %}" alt="RGC Logo" width="45" height="45" class="d-inline-block align-text-top rounded-circle me-2">
+                Redeemed Gospel Church
+            </a>
             <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#mainNavbar">
                 <span class="navbar-toggler-icon"></span>
-            </button> 
-
-            <a class="navbar-brand" href="{% url 'home'%}">
-                <img src="{% static 'image/rgc.jpg' %}" alt="RGC Logo" width="45" height="45" class="d-inline-block align-text-top rounded-circle me-2">
-                Redeemed Gospel Church
-            </a>
-            
+            </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
