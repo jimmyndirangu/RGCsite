@@ -1,9 +1,16 @@
 from django.urls import include, path
 
 from myapp import views
+from django.contrib.sitemaps.views import sitemap
+from myapp.sitemaps import StaticViewSitemap
 
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('',views.home, name='home'),
     path('about/', views.about, name='aboutus'),
     path('leadership/', views.leadership, name='leadership'),
