@@ -90,8 +90,8 @@ def gallery(request):
     return render(request, 'gallery.html',{'worship': worship, 'conference':conference, 'youth': youth, 'outreach' : outreach, 'other' : other})
 
 def robots_txt(request):
-    content = """User-agent: *
-    Allow: /
-    Sitemap: https://redeemed-gospel-church-sultan-hamud.onrender.com/sitemap.xml
+ content = """User-agent: *
+Allow: /
+Sitemap: https://redeemed-gospel-church-sultan-hamud.onrender.com/sitemap.xml
     """
-    return HttpResponse(content, content_type="text/plain")
+ return HttpResponse(content, content_type="text/plain")
