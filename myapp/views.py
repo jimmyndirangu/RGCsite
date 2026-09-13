@@ -3,6 +3,7 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from myapp.models import Event, Leader, Ministries, Gallery, Link
 from django.contrib import messages
+from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
@@ -87,3 +88,10 @@ def gallery(request):
     outreach = Gallery.objects.filter(category="Outreach")
     other = Gallery.objects.filter(category="Other")
     return render(request, 'gallery.html',{'worship': worship, 'conference':conference, 'youth': youth, 'outreach' : outreach, 'other' : other})
+
+def robots_txt(request):
+    content = """User-agent: *
+    Allow: /
+    Sitemap: https://redeemed-gospel-church-sultan-hamud.onrender.com/sitemap.xml
+    """
+    return HttpResponse(content, content_type="text/plain")
