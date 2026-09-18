@@ -99,7 +99,7 @@ Sitemap: https://redeemed-gospel-church-sultan-hamud.onrender.com/sitemap.xml
  return HttpResponse(content, content_type="text/plain")
 
 def custom_sitemap(request):
-    response = sitemap_views.sitemap(request, {'sitemaps': {'static': StaticViewSitemap}})
+    response = sitemap_views.sitemap(request, {'static': StaticViewSitemap})
     if 'X-Robots-Tag' in response:
         del response['X-Robots-Tag']
     return response
