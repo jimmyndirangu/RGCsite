@@ -10,7 +10,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', views.custom_sitemap, name='sitemap'),
     path('',views.home, name='home'),
     path('about/', views.about, name='aboutus'),
     path('leadership/', views.leadership, name='leadership'),
@@ -19,5 +19,4 @@ urlpatterns = [
     path('ministries/', views.ministries, name='ministries'),
     path('gallery/', views.gallery, name='gallery'),
     path("robots.txt", views.robots_txt, name="robots_txt"),
-    path('test.xml', views.test_xml_view, name='test_xml'),
 ]

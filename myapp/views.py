@@ -4,6 +4,8 @@ from django.conf import settings
 from myapp.models import Event, Leader, Ministries, Gallery, Link
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.sitemaps import views as sitemap_views
+from myapp.sitemaps import StaticViewSitemap
 
 # Create your views here.
 def home(request):
@@ -96,5 +98,8 @@ Sitemap: https://redeemed-gospel-church-sultan-hamud.onrender.com/sitemap.xml
     """
  return HttpResponse(content, content_type="text/plain")
 
-def test_xml_view(request):
-    return HttpResponse('<test>hello</test>', content_type='application/xml')
+def custom_sitemap(request):
+    response = sitemap_views.sitemap(request, {'sitemaps': {'static': StaticViewSitemap}})
+    if 'X-Robots-Tag' in response:
+        del response['X-Robots-Tag']
+    return response
