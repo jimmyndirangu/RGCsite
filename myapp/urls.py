@@ -19,5 +19,5 @@ urlpatterns = [
     path('ministries/', views.ministries, name='ministries'),
     path('gallery/', views.gallery, name='gallery'),
     path("robots.txt", views.robots_txt, name="robots_txt"),
-    path('test.xml', views.test_xml, name='test_xml'),
+    path('test.xml', views.test_xml_view, name='test_xml'),
 ]
