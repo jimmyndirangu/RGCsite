@@ -95,3 +95,6 @@ Allow: /
 Sitemap: https://redeemed-gospel-church-sultan-hamud.onrender.com/sitemap.xml
     """
  return HttpResponse(content, content_type="text/plain")
+
+def test_xml_view(request):
+    return HttpResponse('<test>hello</test>', content_type='application/xml')
